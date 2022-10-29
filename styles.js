@@ -9,33 +9,68 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
     },
+    background: {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+    },
     container: {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
         width: '100%',
     },
-    timeContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
+    tdContainer: {
         flex: 0.2,
-        width: '100%',
-        backgroundColor: 'green',
+        alignItems: 'flex-end',
+        width: '90%',
+        borderRadius: 10,
+        marginHorizontal: 16,
+        marginTop: 48,
     },
-    socMedContainer: {
-        flexDirection: 'row',
+    time: {
+        color: '#fff',
+        fontWeight: '900',
+        fontSize: 64,
+        margin: -5,
+    },
+    date: {
+        color: '#fff',
+        fontWeight: '500',
+        fontSize: 24,
+        margin: -5,
+    },
+    secondaryContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 0.8,
         width: '100%',
-        backgroundColor: 'pink',
     },
-    imgIcon: {
-        width: 60,
-        height: 60,
-        margin: 8,
+    socMedContainer: {
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+        padding: 32,
+        borderRadius: 10,
+        backgroundColor: 'rgba(255,255,255,0.8)',
+    },
+    icon: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    imgIcon: {
+        width: 50,
+        height: 50,
+        marginHorizontal: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    txtIcon: {
+        paddingTop: 4,
+        fontSize: 12,
     },
 });
 
