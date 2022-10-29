@@ -1,11 +1,11 @@
-import { Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, TouchableOpacity, Image, StatusBar} from 'react-native';
 
 import { styles } from './styles';
 
 export default function App() {
   return (
     <View style={styles.mainContainer}>
-
+      <StatusBar/>
       <Image
       style={styles.background}
       source={require('./assets/bg.jpg')}

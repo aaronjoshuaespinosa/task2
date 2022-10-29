@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         width: '90%',
         borderRadius: 10,
         marginHorizontal: 16,
-        marginTop: 48,
+        marginTop: 16,
     },
     time: {
         color: '#fff',
