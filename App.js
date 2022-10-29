@@ -46,7 +46,7 @@ export default function App() {
                 style={styles.imgIcon}
                 source={require('./assets/github.png')}
               />
-              <Text style={styles.txtIcon}>Gihub</Text>
+              <Text style={styles.txtIcon}>Github</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.icon}>
