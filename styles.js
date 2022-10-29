@@ -30,13 +30,12 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: 'pink',
     },
-    icon: {
+    imgIcon: {
         width: 60,
         height: 60,
         margin: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'salmon',
     },
 });
 

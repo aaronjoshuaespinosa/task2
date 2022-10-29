@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 import { styles } from './styles';
 
@@ -11,16 +11,39 @@ export default function App() {
           <Text>October 29, 2022</Text>
         </View>
         <View style={styles.socMedContainer}>
-          <TouchableOpacity style={styles.icon}>
-            <Text>FB</Text>
+          <TouchableOpacity>
+            <Image
+              style={styles.imgIcon}
+              source={require('./assets/facebook.png')}
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.icon}>
-            <Text>Twitter</Text>
+          <TouchableOpacity>
+            <Image
+              style={styles.imgIcon}
+              source={require('./assets/twitter.png')}
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.icon}>
-            <Text>Insta</Text>
+          <TouchableOpacity>
+            <Image
+              style={styles.imgIcon}
+              source={require('./assets/instagram.png')}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Image
+              style={styles.imgIcon}
+              source={require('./assets/github.png')}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Image
+              style={styles.imgIcon}
+              source={require('./assets/discord.png')}
+            />
           </TouchableOpacity>
         </View>
       </View>
