@@ -31,14 +31,13 @@ const styles = StyleSheet.create({
     time: {
         color: '#fff',
         fontWeight: '900',
-        fontSize: 64,
-        margin: -5,
+        fontSize: 56,
+        marginVertical: -5,
     },
     date: {
         color: '#fff',
-        fontWeight: '500',
-        fontSize: 24,
-        margin: -5,
+        fontSize: 18,
+        marginVertical: -5,
     },
     secondaryContainer: {
         alignItems: 'center',
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
     },
     socMedContainer: {
         position: 'absolute',
-        bottom: 0,
+        bottom: -1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
