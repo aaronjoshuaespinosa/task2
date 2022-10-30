@@ -10,7 +10,6 @@ export default function App() {
 
   const dtToggle = () => {
     setToggle((current) => !current)
-    console.log(toggle)
   }
 
   // months
