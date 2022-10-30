@@ -5,6 +5,14 @@ import { styles } from './styles';
 
 export default function App() {
 
+  // toggle
+  const [toggle, setToggle] = useState(false);
+
+  const dtToggle = () => {
+    setToggle((current) => !current)
+    console.log(toggle)
+  }
+
   // months
   const months = [
     'January',
@@ -32,48 +40,63 @@ export default function App() {
     'Saturday'
   ];
 
-  const [currentDate, setCurrentDate] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
+  // araw
+  const araw = [
+    'Linggo',
+    'Lunes',
+    'Martes',
+    'Miyerkules',
+    'Huwebes',
+    'Biyernes',
+    'Sabado'
+  ];
 
+  // set links
   const fbLink = 'https://www.facebook.com/';
   const twtLink = 'https://www.twitter.com/';
   const instaLink = 'https://www.instagram.com/';
   const githubLink = 'https://www.github.com/';
   const discordLink = 'https://www.discord.com/';
 
+  // get links
   const fbBtn = () => {
     Linking.openURL(fbLink);
   }
-
   const twtBtn = () => {
     Linking.openURL(twtLink);
   }
-
   const instaBtn = () => {
     Linking.openURL(instaLink);
   }
-
   const githubBtn = () => {
     Linking.openURL(githubLink);
   }
-
   const discordBtn = () => {
     Linking.openURL(discordLink);
   }
 
   // set date and time
-  useEffect(() => {
-    const date = new Date().getDate();
-    const month = new Date().getMonth();
-    const year = new Date().getFullYear();
-    const day = new Date().getDay();
-    var hour = new Date().getHours();
-    var min = new Date().getMinutes();
-    var meridiem = ('');
+  const [currentDateDef, setCurrentDateDef] = useState('');
+  const [currentDateSlsh, setCurrentDateSlsh] = useState('');
+  const [currentTimeDef, setCurrentTimeDef] = useState('');
+  const [currentTimeMil, setCurrentTimeMil] = useState('');
 
+  // get date and time
+  var date = new Date().getDate();
+  var month = new Date().getMonth() + 1;
+  var year = new Date().getFullYear();
+  var day = new Date().getDay();
+  var hour = new Date().getHours();
+  var min = new Date().getMinutes();
+  var meridiem = ('');
+  var dayWord = ('');
+  var arawWord = ('');
+  
+  // set date and time
+  useEffect(() => {
     // set AM or PM
     if(hour > 11) {
-      meridiem = 'PM';
+      meridiem = 'PM';  
     }
     else if(hour <= 11) {
       meridiem = 'AM';
@@ -84,17 +107,31 @@ export default function App() {
       hour = hour - 12;
     }
 
-    setCurrentDate(
-      days[day] + ' | ' + months[month] + ' ' + date + ', ' + year
+    if(min <= 9) {
+      min = '0' + min;
+    }
+
+    dayWord = days[day];
+    arawWord = araw[day];
+
+    setCurrentDateDef(
+      dayWord + ' | ' + months[month-1] + ' ' + date + ', ' + year
+      
     );
     
-    setCurrentTime(
+    setCurrentTimeDef(
       hour + ':' + min + ' ' + meridiem
     );
-  });
 
-  const formatDT = () => {
-  };
+    setCurrentDateSlsh(
+      arawWord + ' | ' + month + '/' + date + '/' + year
+      
+    );
+    
+    setCurrentTimeMil(
+      hour + 12 + ':' + min
+    );
+  });
 
   return (
     <View style={styles.mainContainer}>
@@ -104,10 +141,11 @@ export default function App() {
         source={require('./assets/bg.jpg')}
       />
       <View style={styles.container}>
-        <TouchableOpacity style={styles.tdContainer} onPress={formatDT}>
-          <Text style={styles.time}>{currentTime}</Text>
-          <Text style={styles.date}>{currentDate}</Text>
+        <TouchableOpacity style={styles.tdContainer} onPress={dtToggle}>
+          <Text style={styles.time} >{toggle ? currentTimeMil : currentTimeDef}</Text>
+          <Text style={styles.date}>{toggle ? currentDateSlsh : currentDateDef}</Text>
         </TouchableOpacity>
+
         <View style={styles.secondaryContainer}>
           <View style={styles.socMedContainer}>
             <TouchableOpacity style={styles.icon} onPress={fbBtn}>
