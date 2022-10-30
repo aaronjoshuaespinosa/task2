@@ -33,6 +33,7 @@ export default function App() {
   const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState('');
 
+  // months
   const months = [
     'January',
     'February',
@@ -48,6 +49,7 @@ export default function App() {
     'December'
   ];
 
+  // days
   const days = [
     'Sunday',
     'Monday',
@@ -58,6 +60,7 @@ export default function App() {
     'Saturday'
   ];
 
+  // set date
   useEffect(() => {
     const date = new Date().getDate();
     const month = new Date().getMonth();
@@ -69,12 +72,27 @@ export default function App() {
     );
   });
 
+  // set time
   useEffect(() => {
-    const hour = new Date().getHours();
-    const min = new Date().getMinutes();
+    var hour = new Date().getHours();
+    var min = new Date().getMinutes();
+    var meridiem = ('');
+
+    // set AM or PM
+    if(hour > 11) {
+      meridiem = 'PM';
+    }
+    else if(hour <= 11) {
+      meridiem = 'AM';
+    }
+
+    // remove military time
+    if(hour > 12) {
+      hour = hour - 12;
+    }
 
     setCurrentTime(
-      hour + ':' + min
+      hour + ':' + min + ' ' + meridiem
     );
   });
 
