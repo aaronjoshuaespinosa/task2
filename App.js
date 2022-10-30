@@ -4,34 +4,6 @@ import { Text, View, TouchableOpacity, Image, StatusBar, Linking } from 'react-n
 import { styles } from './styles';
 
 export default function App() {
-  const fbLink = 'https://www.facebook.com/';
-  const twtLink = 'https://www.twitter.com/';
-  const instaLink = 'https://www.instagram.com/';
-  const githubLink = 'https://www.github.com/';
-  const discordLink = 'https://www.discord.com/';
-
-  const fbBtn = () => {
-    Linking.openURL(fbLink);
-  }
-
-  const twtBtn = () => {
-    Linking.openURL(twtLink);
-  }
-
-  const instaBtn = () => {
-    Linking.openURL(instaLink);
-  }
-
-  const githubBtn = () => {
-    Linking.openURL(githubLink);
-  }
-
-  const discordBtn = () => {
-    Linking.openURL(discordLink);
-  }
-
-  const [currentDate, setCurrentDate] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
 
   // months
   const months = [
@@ -60,20 +32,41 @@ export default function App() {
     'Saturday'
   ];
 
-  // set date
+  const [currentDate, setCurrentDate] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
+
+  const fbLink = 'https://www.facebook.com/';
+  const twtLink = 'https://www.twitter.com/';
+  const instaLink = 'https://www.instagram.com/';
+  const githubLink = 'https://www.github.com/';
+  const discordLink = 'https://www.discord.com/';
+
+  const fbBtn = () => {
+    Linking.openURL(fbLink);
+  }
+
+  const twtBtn = () => {
+    Linking.openURL(twtLink);
+  }
+
+  const instaBtn = () => {
+    Linking.openURL(instaLink);
+  }
+
+  const githubBtn = () => {
+    Linking.openURL(githubLink);
+  }
+
+  const discordBtn = () => {
+    Linking.openURL(discordLink);
+  }
+
+  // set date and time
   useEffect(() => {
     const date = new Date().getDate();
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
     const day = new Date().getDay();
-
-    setCurrentDate(
-      days[day] + ' | ' + months[month] + ' ' + date + ', ' + year
-    );
-  });
-
-  // set time
-  useEffect(() => {
     var hour = new Date().getHours();
     var min = new Date().getMinutes();
     var meridiem = ('');
@@ -91,10 +84,17 @@ export default function App() {
       hour = hour - 12;
     }
 
+    setCurrentDate(
+      days[day] + ' | ' + months[month] + ' ' + date + ', ' + year
+    );
+    
     setCurrentTime(
       hour + ':' + min + ' ' + meridiem
     );
   });
+
+  const formatDT = () => {
+  };
 
   return (
     <View style={styles.mainContainer}>
@@ -104,10 +104,10 @@ export default function App() {
         source={require('./assets/bg.jpg')}
       />
       <View style={styles.container}>
-        <View style={styles.tdContainer}>
+        <TouchableOpacity style={styles.tdContainer} onPress={formatDT}>
           <Text style={styles.time}>{currentTime}</Text>
           <Text style={styles.date}>{currentDate}</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.secondaryContainer}>
           <View style={styles.socMedContainer}>
             <TouchableOpacity style={styles.icon} onPress={fbBtn}>
